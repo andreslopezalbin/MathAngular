@@ -1,46 +1,53 @@
-<button (click)='getEquation()'>Calculate</button>
+<div class="container-fluid background">
 
-
-<h2>{{equation}}</h2>
-<h2>{{result}}</h2>
-
-
-<div id="game-div">
-  <div class="container-fluid background">
-    <div class="row">
-      <div class="col-md-10">
-
-        <p>
-          <ngb-progressbar type="warning" [value]="progressbarValue" [striped]="true" [animated]="true"><i>{{progressbarValue}}</i></ngb-progressbar>
-        </p>
-
-      </div>
+  <div class="row .mt-1">
+    <div class="col-md-10 mx-auto">
+      <p>
+        <ngb-progressbar type="warning" [value]="progressbarValue" [striped]="true" [animated]="true"></ngb-progressbar>
+      </p>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-6">
-                   <i class="fas fa-volume-up fa-2x"></i>
+
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <div *ngIf="soundActivated; else elseBlock">
+            <fa name="volume-up fa-3x" (click)="soundActivated = !soundActivated"></fa>
           </div>
-          <div class="col-md-6" align="">
-            <span class="float-right"> Hits: {{ current }}</span>
-            <span class="float-right"> Best: {{ best }} </span>
-          </div>
+          <ng-template #elseBlock>
+            <fa name="volume-off fa-3x" (click)="soundActivated = !soundActivated"></fa>
+          </ng-template>
+        </div>
+        <div class="col-md-6">
+          <h3 class="float-right"> Hits: {{ current }}</h3>
+          <h3 class="float-right"> Best: {{ best }} </h3>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12" align="center">
-        <span class="">{{ equation }}</span>
-      </div>
-    </div>
-    
   </div>
 
-  <button class="btn btn-lg btn-outline-primary" (click)="checkAnswer(true)"><fa name="check"></fa></button>
-  <button class="btn btn-lg btn-outline-primary" (click)="checkAnswer(false)"><fa name="times"></fa></button>
+  <div class="row">
+    <div class="col-md-12" align="center">
+      <h1>{{equation}}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" align="center">
 
 
+      <button class="btn btn-lg btn-success" (click)="checkAnswer(true)">
+        <fa name="check fa-5x"></fa>
+      </button>
+      <button class="btn btn-lg btn-danger" (click)="checkAnswer(false)">
+        <fa name="times fa-5x"> </fa>
+      </button>
 
+    </div>
+
+  </div>
 
 </div>

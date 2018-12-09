@@ -1,5 +1,5 @@
 import { CommunicationService } from '../utils/communication.service';
-import { Component, OnInit, Input, HostListener } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -19,11 +19,5 @@ export class ModalComponent {
     this.communicationService.closeModal();
     this.activeModal.close();
   }
-
-  /* reset() {
-    this.activeModal.close();
-  } */
-
-
 
 }
