@@ -1,3 +1,46 @@
-<p>
-  table works!
-</p>
+<button (click)='getEquation()'>Calculate</button>
+
+
+<h2>{{equation}}</h2>
+<h2>{{result}}</h2>
+
+
+<div id="game-div">
+  <div class="container-fluid background">
+    <div class="row">
+      <div class="col-md-10">
+
+        <p>
+          <ngb-progressbar type="warning" [value]="progressbarValue" [striped]="true" [animated]="true"><i>{{progressbarValue}}</i></ngb-progressbar>
+        </p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-6">
+                   <i class="fas fa-volume-up fa-2x"></i>
+          </div>
+          <div class="col-md-6" align="">
+            <span class="float-right"> Hits: {{ current }}</span>
+            <span class="float-right"> Best: {{ best }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <span class="">{{ equation }}</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <button class="btn btn-lg btn-outline-primary" (click)="checkAnswer(true)"><fa name="check"></fa></button>
+  <button class="btn btn-lg btn-outline-primary" (click)="checkAnswer(false)"><fa name="times"></fa></button>
+
+
+
+
+</div>
